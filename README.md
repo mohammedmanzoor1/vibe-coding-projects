@@ -43,8 +43,3 @@ vibe-coding-projects/
 │
 └── Code-Empire/
     └── code-empire.html
-
-Copyright
-© 2026 Mohammed Manzoor Ul Hassan. All Rights Reserved.
-The source code, designs, content, graphics, and project implementations in this repository are proprietary.
-You may view the projects for personal or educational reference, but you may not copy, modify, redistribute, republish, or use the source code or project assets in other projects without explicit permission from the author.
