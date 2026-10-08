@@ -3,15 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Coding Projects</title>
+
+    <title>Vibe Coding Projects | Mohammed Manzoor Ul Hassan</title>
+
+    <meta
+        name="description"
+        content="A collection of standalone Vibe Coding projects by Mohammed Manzoor Ul Hassan."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            color: #f5f7ff;
+
+            background:
+                radial-gradient(circle at 15% 20%, rgba(90, 80, 255, 0.18), transparent 30%),
+                radial-gradient(circle at 85% 15%, rgba(0, 220, 255, 0.12), transparent 30%),
+                radial-gradient(circle at 50% 90%, rgba(160, 60, 255, 0.12), transparent 35%),
+                #070a12;
+
+            overflow-x: hidden;
+        }
+
+        /* Background glow */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+            mask-image: linear-gradient(to bottom, black, transparent);
+        }
+
+        .container {
+            width: min(1150px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            backdrop-filter: blur(18px);
+            background: rgba(7, 10, 18, 0.72);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-inner {
+            min-height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+
+            font-size: 1.2rem;
+        }
+
+        .nav-link {
+            color: #cbd1e1;
+            text-decoration: none;
+
+            padding: 9px 14px;
+            border-radius: 10px;
+
+            transition: 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: white;
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 100px 0 75px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 14px;
+            margin-bottom: 25px;
+
+            border: 1px solid rgba(130, 140, 255, 0.25);
+            border-radius: 999px;
+
+            background: rgba(100, 100, 255, 0.08);
+
+            color: #bfc5ff;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #68ffb0;
+
+            box-shadow: 0 0 12px rgba(104,255,176,0.8);
+        }
+
+        h1 {
+            max-width: 850px;
+            margin: auto;
+
+            font-size: clamp(2.8rem, 7vw, 5.7rem);
+            line-height: 0.98;
+            letter-spacing: -0.055em;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #ffffff,
+                    #aab6ff 45%,
+                    #76e7ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 28px auto 0;
+
+            color: #a8afc3;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            margin-top: 34px;
+
+            display: flex;
+            justify-content: center;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            padding: 13px 19px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+            font-weight: 700;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .button-primary {
+            color: #071018;
+
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #9eeeff
+            );
+
+            box-shadow:
+                0 10px 35px rgba(90, 210, 255, 0.15);
+        }
+
+        .button-secondary {
+            color: #e6eaff;
+
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.045);
+        }
+
+        /* Projects */
+
+        .projects {
+            padding: 25px 0 100px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            letter-spacing: -0.035em;
+        }
+
+        .section-heading p {
+            margin-top: 10px;
+            color: #858da4;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+
+            min-height: 390px;
+            padding: 28px;
+
+            border-radius: 22px;
+
+            border: 1px solid rgba(255,255,255,0.09);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.075),
+                    rgba(255,255,255,0.025)
+                );
+
+            backdrop-filter: blur(14px);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+            width: 180px;
+            height: 180px;
+
+            top: -90px;
+            right: -90px;
+
+            border-radius: 50%;
+
+            background: rgba(120,130,255,0.14);
+            filter: blur(35px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(160,180,255,0.3);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.35);
+        }
+
+        .project-icon {
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 25px;
+
+            border-radius: 17px;
+
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+
+            font-size: 1.7rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 13px;
+        }
+
+        .project-card p {
+            color: #929aae;
+            line-height: 1.7;
+            font-size: 0.94rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 6px 9px;
+
+            border-radius: 8px;
+
+            color: #b9c1d8;
+            background: rgba(255,255,255,0.055);
+
+            font-size: 0.72rem;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .project-button {
+            margin-top: auto;
+            padding-top: 25px;
+        }
+
+        .open-project {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 100%;
+
+            padding: 12px 14px;
+
+            border-radius: 11px;
+
+            text-decoration: none;
+
+            color: #e9edff;
+
+            background: rgba(255,255,255,0.055);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            font-weight: 600;
+
+            transition: 0.25s ease;
+        }
+
+        .open-project:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(170,190,255,0.25);
+        }
+
+        .arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .open-project:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 35px 0 45px;
+
+            color: #737b91;
+            text-align: center;
+
+            font-size: 0.85rem;
+        }
+
+        footer strong {
+            color: #b9c1d5;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+                max-width: 620px;
+                margin: auto;
+            }
+
+            .project-card {
+                min-height: 340px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 28px, 1150px);
+            }
+
+            .nav-inner {
+                min-height: 62px;
+            }
+
+            .nav-link {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 75px 0 55px;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .project-card {
+                padding: 23px;
+                border-radius: 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Vibe Coding Projects</h1>
+    <nav>
+        <div class="container nav-inner">
 
-    <a href="agent-crew/agent-crew.html">Agent Crew</a>
-    <a href="Bug-smasher/bug-smasher.html">Bug Smasher</a>
-    <a href="Code-Empire/code-empire.html">Code Empire</a>
+            <div class="brand">
+                <div class="brand-icon">⚡</div>
+                <span>Vibe Coding Projects</span>
+            </div>
+
+            <a
+                class="nav-link"
+                href="https://manzoor-portfolio-five.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Main Portfolio ↗
+            </a>
+
+        </div>
+    </nav>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="eyebrow">
+                    <span class="status-dot"></span>
+                    Standalone Interactive Projects
+                </div>
+
+                <h1>
+                    Vibe Coding
+                    <br>
+                    <span>Experiments.</span>
+                </h1>
+
+                <p>
+                    A collection of interactive web experiences built through
+                    Vibe Coding — combining creativity, experimentation,
+                    interface design, games, and AI concepts.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        class="button button-primary"
+                        href="#projects"
+                    >
+                        Explore Projects ↓
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="https://manzoor-portfolio-five.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Main Portfolio ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="projects" id="projects">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Featured Projects</h2>
+                    <p>Choose an experience and explore.</p>
+                </div>
+
+
+                <div class="project-grid">
+
+
+                    <!-- Agent Crew -->
+
+                    <article class="project-card">
+
+                        <div class="project-icon">
+                            🤖
+                        </div>
+
+                        <h3>
+                            Agent Crew
+                        </h3>
+
+                        <p>
+                            Human-in-the-Loop AI agent concept exploring
+                            human oversight, collaboration, and interaction
+                            between intelligent agents.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="tag">AI Concept</span>
+                            <span class="tag">Agents</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+
+                        <div class="project-button">
+                            <a
+                                class="open-project"
+                                href="agent-crew/agent-crew.html"
+                            >
+                                <span>Open Project</span>
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Bug Smasher -->
+
+                    <article class="project-card">
+
+                        <div class="project-icon">
+                            🛡️
+                        </div>
+
+                        <h3>
+                            Bug Smasher
+                        </h3>
+
+                        <p>
+                            Server Defense is a standalone browser game
+                            where the goal is to defend the server from
+                            incoming threats.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="tag">Game</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+
+                        <div class="project-button">
+                            <a
+                                class="open-project"
+                                href="Bug-smasher/bug-smasher.html"
+                            >
+                                <span>Open Project</span>
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Code Empire -->
+
+                    <article class="project-card">
+
+                        <div class="project-icon">
+                            💻
+                        </div>
+
+                        <h3>
+                            Code Empire
+                        </h3>
+
+                        <p>
+                            An interactive developer-themed experience
+                            centered around building and growing a coding
+                            career.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="tag">Game</span>
+                            <span class="tag">Developer</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+
+                        <div class="project-button">
+                            <a
+                                class="open-project"
+                                href="Code-Empire/code-empire.html"
+                            >
+                                <span>Open Project</span>
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 <strong>Mohammed Manzoor Ul Hassan</strong>
+            </p>
+
+            <p style="margin-top:8px;">
+                Vibe Coding Projects · Built with HTML, CSS & JavaScript
+            </p>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
