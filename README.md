@@ -7,16 +7,16 @@ These projects explore interactive web experiences, games, AI concepts, and expe
 ## Projects
 
 ### 🤖 Agent Crew — Human-in-the-Loop
+
 An interactive AI-agent concept exploring human oversight and collaboration between agents.
 
-### 🛡️ Bug Smasher — Server Defense
+### 🛡️ Bug Smasher — Server Defence
+
 A standalone browser game focused on defending a server from incoming threats.
 
 ### 💻 Code Empire
-An interactive developer-themed game/experience based on building and growing a coding career.
 
-### 🎨 Vibe Coding
-A collection/experience showcasing the concept of building creative web projects through Vibe Coding.
+An interactive developer-themed game/experience based on building and growing a coding career.
 
 ## Technologies
 
@@ -27,31 +27,24 @@ A collection/experience showcasing the concept of building creative web projects
 - Interactive UI/UX
 - Vibe Coding
 
-
 ## Repository Structure
 
 ```text
 vibe-coding-projects/
 │
 ├── index.html
+├── README.md
 │
-├── Agent-Crew/
+├── agent-crew/
 │   └── agent-crew.html
 │
-├── Bug-Smasher/
+├── Bug-smasher/
 │   └── bug-smasher.html
 │
-├── Code-Empire/
-│   └── code-empire.html
-│
-└── Vibe-Coding/
-    └── vibe-coding.html
+└── Code-Empire/
+    └── code-empire.html
 
-
-# Copyright
-
+Copyright
 © 2026 Mohammed Manzoor Ul Hassan. All Rights Reserved.
-
 The source code, designs, content, graphics, and project implementations in this repository are proprietary.
-
 You may view the projects for personal or educational reference, but you may not copy, modify, redistribute, republish, or use the source code or project assets in other projects without explicit permission from the author.
